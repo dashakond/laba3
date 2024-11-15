@@ -4,7 +4,7 @@
 
 int main() {
     FuncA func;
-    std::cout << "Result: " << func.calculate(0) << std::endl;
+    std::cout << "Result: " << func.calculate() << std::endl;
     return 0;
 }
 

@@ -4,7 +4,7 @@
 
 class FuncA {
 public:
-    double calculate(int n);  // Updated function prototype
+    double calculate(int x);
 };
 
 #endif
