@@ -7,13 +7,13 @@ OBJS = main.o FuncA.o
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-    $(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
 main.o: main.cpp FuncA.h
-    $(CXX) $(CXXFLAGS) -c main.cpp
+	$(CXX) $(CXXFLAGS) -c main.cpp
 
 FuncA.o: FuncA.cpp FuncA.h
-    $(CXX) $(CXXFLAGS) -c FuncA.cpp
+	$(CXX) $(CXXFLAGS) -c FuncA.cpp
 
 clean:
-    rm -f $(TARGET) $(OBJS)
+	rm -f $(TARGET) $(OBJS)
