@@ -1,8 +1,8 @@
-name: C/C++ CI
+name: C/C++ Autotools CI
 
 on:
   push:
-    branches: [ "branchMake" ]
+    branches: [ "branchAutomake" ]
 
 jobs:
 
@@ -11,10 +11,18 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: Compile
+    - name: Autoreconf
       run: |
-        make
-    - name: Link
+        autoreconf -i
+    - name: Configure
       run: |
-        make main
+        ./configure
+    - name: Make
+      run: |
+        make dist
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: tarball
+        path: *.tar.gz
 
