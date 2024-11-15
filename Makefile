@@ -1,16 +1,19 @@
-CC = g++
-CFLAGS = -Wall -Wextra -std=c++11
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall
 
-all: main
+TARGET = main
+OBJS = main.o FuncA.o
 
-main: main.o FuncA.o
-    $(CC) $(CFLAGS) -o main main.o FuncA.o
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+  $(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
 main.o: main.cpp FuncA.h
-    $(CC) $(CFLAGS) -c main.cpp
+  $(CXX) $(CXXFLAGS) -c main.cpp
 
 FuncA.o: FuncA.cpp FuncA.h
-    $(CC) $(CFLAGS) -c FuncA.cpp
+  $(CXX) $(CXXFLAGS) -c FuncA.cpp
 
 clean:
-    rm -f *.o main
+  rm -f $(TARGET) $(OBJS)
